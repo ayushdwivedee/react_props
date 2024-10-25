@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Components in React</title>
+    <link rel="stylesheet" href="props.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Write your code here
+      let root = document.getElementById("root");
+
+      const SubComp = ({ num, head, para }) => {
+        return (
+          <div>
+            <span>{num}</span>
+            <h3>{head}</h3>
+            <p>{para}</p>
+          </div>
+        );
+      };
+
+      const MainComp = () => {
+        return (
+          <div className="parent">
+            <h1>Getting started in <span>3 easy steps</span></h1>
+            <div className="flex">
+              <SubComp
+                num={"01"}
+                head="Find your template"
+                para="Every template is embedded within an iframe, so you can easily check what they look like and test the responsive behaviour"
+              />
+              <SubComp
+                num={"02"}
+                head="Copy your code"
+                para="Click the code tab to see the actual source code of the template. Copy and paste it into your project and adjust it to your needs"
+              />
+              <SubComp
+                num={"03"}
+                head="Enjoy your free time"
+                para="You've just saved yourself a bunch of time not building the same stuff over and over again. Enjoy your free time, and build business features"
+              />
+            </div>
+          </div>
+        );
+      };
+
+      ReactDOM.createRoot(root).render(<MainComp />);
+    </script>
+  </body>
+</html>
